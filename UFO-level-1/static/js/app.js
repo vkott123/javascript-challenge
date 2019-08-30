@@ -15,12 +15,14 @@ function appendRowsAndData(obj) {
 // Append all table rows and data
 data.forEach(appendRowsAndData);
 
+// Filter button
 var button = d3.select("#filter-btn");
 
-// Only runs when button is clicked or user presses enter
+// This function only runs when the button is clicked
 button.on("click", function() {
     d3.event.preventDefault();
 
+    // Filter by date
     var dateInput = d3.select("#datetime");
     var datetime = dateInput.property("value");
 
