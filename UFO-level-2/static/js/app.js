@@ -15,12 +15,14 @@ function appendRowsAndData(obj) {
 // Append all table rows and data
 data.forEach(appendRowsAndData);
 
+// Filter button
 var button = d3.select("#filter-btn");
 
-// Only runs when button is clicked or user presses enter
+// This function only runs when the button is clicked
 button.on("click", function() {
     d3.event.preventDefault();
 
+    // Filter by date
     var dateInput = d3.select("#datetime");
     var datetime = dateInput.property("value");
 
@@ -30,8 +32,10 @@ button.on("click", function() {
         filterInputs.datetime = datetime;
     }
 
-    // This variable set in moreFilters.on()
+    // More filters function
     if (usingMoreFilters) {
+
+        // Filter by city
         var cityFilter = d3.select("#City-filter");
         var city = cityFilter.property("value").toLowerCase();
 
@@ -39,6 +43,7 @@ button.on("click", function() {
             filterInputs.city = city;
         }
 
+        // Filter by state
         var stateFilter = d3.select("#State-filter");
         var state = stateFilter.property("value").toLowerCase();
 
@@ -46,6 +51,7 @@ button.on("click", function() {
             filterInputs.state = state;
         }
 
+        // Filter by country
         var countryFilter = d3.select("#Country-filter");
         var country = countryFilter.property("value").toLowerCase();
 
@@ -53,6 +59,7 @@ button.on("click", function() {
             filterInputs.country = country;
         }
 
+        // Filter by shape
         var shapeFilter = d3.select("#Shape-filter");
         var shape = shapeFilter.property("value").toLowerCase();
         
